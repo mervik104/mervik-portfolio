@@ -1,28 +1,21 @@
 {
-  "name": "brand-site",
-  "private": true,
-  "version": "0.0.0",
+  "name": "mervik-portfolio",
   "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite-ssg build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "dev": "nuxt dev",
+    "build": "npx nuxi generate",
+    "preview": "nuxt preview",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@nuxtjs/seo": "^5.1.3",
     "@tailwindcss/vite": "^4.3.0",
-    "tailwindcss": "^4.3.0",
-    "vue": "^3.5.24",
-    "vue-router": "^5.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@vitejs/plugin-vue": "^6.0.1",
-    "@vue/tsconfig": "^0.8.1",
     "gh-pages": "^6.3.0",
-    "typescript": "~5.9.3",
-    "vite": "^7.2.4",
-    "vite-ssg": "^28.3.0",
-    "vue-tsc": "^3.1.4"
+    "nuxt": "^4.4.6",
+    "nuxt-single-html": "0.2.0",
+    "tailwindcss": "^4.3.0",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
   }
 }

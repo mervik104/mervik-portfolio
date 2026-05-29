@@ -6,7 +6,7 @@ h2,
 h3,
 .logo,
 .stat-num {
-  font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 body,
@@ -14,14 +14,10 @@ p,
 nav,
 .tag,
 input {
-  font-family: 'DM Mono', monospace;
+    font-family: 'DM Mono', monospace;
 }
 
 @theme {
-  --font-display: "Bebas Neue", sans-serif;
-  --font-mono: "DM Mono", monospace;
-}
-
-asd {
-  color: #bcbccd
+    --font-display: "Bebas Neue", sans-serif;
+    --font-mono: "DM Mono", monospace;
 }

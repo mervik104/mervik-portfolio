@@ -23,17 +23,17 @@
 </template>
 
 <script setup lang="ts">
-
-import About from './components/About.vue';
-import Background from './components/Background.vue';
-import Contacts from './components/Contacts.vue';
-import Experience from './components/Experience.vue';
-import Footer from './components/Footer.vue';
-import Hero from './components/Hero.vue';
-import Stack from './components/Stack.vue';
-import { useReveal } from './composables/useReveal';
-
 useReveal()
+
+useSeoMeta({
+  title: 'Портфолио MerVik | Веб-разработчик',
+  description: 'Добро пожаловать в моё портфолио.',
+  ogTitle: 'MerVik Portfolio',
+  ogDescription: 'Посмотрите мои работы.',
+  ogImage: '/mervik.jpg',
+  ogUrl: 'https://mervik.ru/',
+  twitterCard: 'summary_large_image'
+})
 
 </script>
 

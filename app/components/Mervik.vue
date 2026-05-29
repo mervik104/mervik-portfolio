@@ -25,7 +25,7 @@ import { GITHUB } from '../data/contacts';
 
             <div class="relative flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl overflow-hidden border border-red-400/20 dark:border-red-500/20 shrink-0">
-                    <img src="/mervik.jpg" alt="Mervik" class="w-full h-full object-cover" />
+                    <img src="./mervik.jpg" alt="Mervik" class="w-full h-full object-cover" />
                 </div>
                 <div class="leading-tight">
                     <div class="font-mono text-[10px] uppercase tracking-widest text-gray-700 dark:text-neutral-500">

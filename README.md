@@ -1,47 +1,75 @@
-# 🚀 Портфолио MerVik
+# Nuxt Minimal Starter
 
-Персональный сайт-визитка **MerVik (Борис Степаненко)** — Frontend / Fullstack разработчика.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-🌐 Сайт: https://mervik.ru/
+## Setup
 
----
+Make sure to install dependencies:
 
-## 📌 О проекте
+```bash
+# npm
+npm install
 
-Это современный одностраничный сайт-портфолио, созданный для демонстрации навыков, опыта и проектов.
+# pnpm
+pnpm install
 
-Основные цели проекта:
+# yarn
+yarn install
 
-- Современный UI/UX дизайн
-- Высокая производительность
-- Адаптивная верстка под все устройства
-- Чистая архитектура
-- Выразительный визуальный стиль
+# bun
+bun install
+```
 
----
+## Development Server
 
-## 🧰 Технологии
+Start the development server on `http://localhost:3000`:
 
-### Frontend
-- Vue 3
-- TypeScript
-- Vite
-- Tailwind CSS
+```bash
+# npm
+npm run dev
 
-### Инструменты и архитектура
-- Компонентный подход
-- SVG и кастомные UI элементы
-- Git / GitHub Pages
-- Статическая сборка (SPA)
+# pnpm
+pnpm dev
 
----
+# yarn
+yarn dev
 
-## ✨ Возможности сайта
+# bun
+bun run dev
+```
 
-- Анимированный современный интерфейс
-- Полная адаптивность (mobile / tablet / desktop)
-- Разделы: обо мне, стек, опыт, контакты
-- Карточки проектов с GitHub и ссылками
-- Быстрая загрузка (оптимизированная сборка)
+## Production
 
----
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
