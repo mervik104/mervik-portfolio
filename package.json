@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "tailwindcss": "^4.3.0",
-    "vue": "^3.5.24"
+    "vue": "^3.5.24",
+    "vue-router": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
@@ -21,6 +22,7 @@
     "gh-pages": "^6.3.0",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
+    "vite-ssg": "^28.3.0",
     "vue-tsc": "^3.1.4"
   }
 }

@@ -7,7 +7,7 @@
       <div class="relative shrink-0">
         <div class="absolute inset-0 bg-red-600/25 blur-2xl scale-150 rounded-full group-hover:scale-[2] transition-transform duration-700 ease-out" />
         <div class="relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 border border-red-900/40 bg-neutral-900/80 backdrop-blur-xl rounded-2xl md:rounded-3xl shadow-[0_0_48px_rgba(239,68,68,0.12)]">
-          <img src="/logo.jpg" class="object-cover w-12 h-12 md:w-18 md:h-18 rounded-xl md:rounded-2xl" alt="MerVik logo" />
+          <img src="/mervik.jpg" class="object-cover w-12 h-12 md:w-18 md:h-18 rounded-xl md:rounded-2xl" alt="MerVik logo" />
         </div>
       </div>
       <div>

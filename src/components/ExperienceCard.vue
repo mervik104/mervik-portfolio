@@ -47,7 +47,7 @@
                     </span>
 
                     <span :class="[
-                        'font-mono text-[11px] uppercase tracking-[0.18em]',
+                        'font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em]',
                         status === 'completed'
                             ? 'text-emerald-400'
                             : 'text-amber-400'
