@@ -16,7 +16,7 @@ export const experience: experienceType[] = [
         description:
             'Полный цикл разработки продукта: от архитектуры до UI. Разрабатывал backend на Payload CMS, проектировал MongoDB структуру, API и админ-панель. На frontend реализовывал интерфейсы на Nuxt с Tailwind, компоненты, анимации и взаимодействие с данными.',
         github: 'https://github.com/RostorVlasov/prosrochkapatrol',
-        website: 'https://test.prosrochkapatrol.ru/',
+        website: 'https://freshcheckastra.ru/',
         status: 'development',
     },
     {
