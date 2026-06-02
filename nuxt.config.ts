@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Портфолио MerVik — Vue / Nuxt / Fullstack разработчик. Проекты, опыт и контакты.' },
       ],
       link: [
-        { rel: 'icon', type: 'image/jpeg', href: './favicon.jpg' }
+        { rel: 'icon', href: './favicon.ico' }
       ]
     }
   },

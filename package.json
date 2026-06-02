@@ -11,6 +11,7 @@
   "dependencies": {
     "@nuxtjs/seo": "^5.1.3",
     "@tailwindcss/vite": "^4.3.0",
+    "@takumi-rs/core": "^1.6.0",
     "gh-pages": "^6.3.0",
     "nuxt": "^4.4.6",
     "nuxt-single-html": "0.2.0",
