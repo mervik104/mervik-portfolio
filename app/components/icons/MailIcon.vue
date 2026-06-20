@@ -5,3 +5,4 @@
     <path d="M3 7l9 6 9-6" />
   </svg>
 </template>
+<script lang="ts" setup></script>

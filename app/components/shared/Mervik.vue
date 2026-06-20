@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { GITHUB } from '../data/contacts';
-
-</script>
-
 <template>
     <a :href="GITHUB" class="block">
         <div
@@ -25,10 +20,11 @@ import { GITHUB } from '../data/contacts';
 
             <div class="relative flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl overflow-hidden border border-red-400/20 dark:border-red-500/20 shrink-0">
+                    <!-- относительный путь к картинке используется так как в билде все файлы из public будут в одной папке !-->
                     <img src="./mervik.jpg" alt="Mervik" class="w-full h-full object-cover" />
                 </div>
                 <div class="leading-tight">
-                    <div class="font-mono text-[10px] uppercase tracking-widest text-gray-700 dark:text-neutral-500">
+                    <div class="font-mono text-[10px] uppercase tracking-widest text-gray-700 dark:text-neutral-400">
                         Site Made by
                     </div>
                     <div class="flex items-center gap-2">
@@ -48,3 +44,7 @@ import { GITHUB } from '../data/contacts';
         </div>
     </a>
 </template>
+
+<script lang="ts" setup>
+import { GITHUB } from '@/data/contacts';
+</script>

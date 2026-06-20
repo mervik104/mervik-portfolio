@@ -9,12 +9,14 @@
       <About />
       <Stack />
       <Experience />
+
       <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
         <span class="h-px w-10 bg-red-600 shrink-0" />
         <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
           Свяжитесь со мной
         </h3>
       </div>
+
       <Contacts />
       <Footer />
 
@@ -23,6 +25,9 @@
 </template>
 
 <script setup lang="ts">
+import Background from './components/shared/Background.vue';
+import Hero from './components/shared/Hero.vue';
+
 useReveal()
 
 useSeoMeta({

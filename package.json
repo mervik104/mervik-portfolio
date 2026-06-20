@@ -6,6 +6,7 @@
     "dev": "nuxt dev",
     "build": "npx nuxi generate",
     "preview": "nuxt preview",
+    "icons:download": "node scripts/download-icons.mjs",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {

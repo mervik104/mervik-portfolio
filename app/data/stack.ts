@@ -1,8 +1,61 @@
-export const stack = [
-    { label: 'Core', value: 'JavaScript (ES6+) · TypeScript' },
-    { label: 'Frontend', value: 'React · Vue.js · Nuxt.js' },
-    { label: 'State', value: 'Redux · Pinia · Zustand' },
-    { label: 'Styling', value: 'HTML5 · SCSS · Tailwind CSS' },
-    { label: 'Backend', value: 'Node.js · Express.js · MongoDB · SQLite' },
-    { label: 'Data & Tools', value: 'REST API · Payload CMS · Vite · Git' },
+export interface StackTech {
+    name: string
+    icon: string
+}
+
+export interface StackCategory {
+    label: string
+    items: StackTech[]
+}
+
+export const stack: StackCategory[] = [
+    {
+        label: 'Core',
+        items: [
+            { name: 'JavaScript', icon: 'skill-icons:javascript' },
+            { name: 'TypeScript', icon: 'skill-icons:typescript' },
+        ],
+    },
+    {
+        label: 'Frontend',
+        items: [
+            { name: 'React', icon: 'skill-icons:react-dark' },
+            { name: 'Vue.js', icon: 'skill-icons:vuejs-dark' },
+            { name: 'Nuxt.js', icon: 'skill-icons:nuxtjs-dark' },
+        ],
+    },
+    {
+        label: 'State',
+        items: [
+            { name: 'Redux', icon: 'skill-icons:redux' },
+            { name: 'Pinia', icon: 'skill-icons:pinia-dark' },
+            { name: 'Zustand', icon: 'devicon:zustand' },
+        ],
+    },
+    {
+        label: 'Styling',
+        items: [
+            { name: 'HTML5', icon: 'skill-icons:html' },
+            { name: 'SCSS', icon: 'skill-icons:sass' },
+            { name: 'Tailwind CSS', icon: 'skill-icons:tailwindcss-dark' },
+        ],
+    },
+    {
+        label: 'Backend',
+        items: [
+            { name: 'Node.js', icon: 'skill-icons:nodejs-dark' },
+            { name: 'Express.js', icon: 'skill-icons:expressjs-light' },
+            { name: 'MongoDB', icon: 'skill-icons:mongodb' },
+            { name: 'SQLite', icon: 'skill-icons:sqlite' },
+        ],
+    },
+    {
+        label: 'Data & Tools',
+        items: [
+            { name: 'REST API', icon: 'mdi:api' },
+            { name: 'Payload CMS', icon: 'simple-icons:payloadcms' },
+            { name: 'Vite', icon: 'skill-icons:vite-dark' },
+            { name: 'Git', icon: 'skill-icons:git' },
+        ],
+    },
 ]

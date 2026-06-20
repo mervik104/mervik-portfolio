@@ -19,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { useDrops } from '../composables/useDrops';
-
 const { drops } = useDrops()
 </script>
 

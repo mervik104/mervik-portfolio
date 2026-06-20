@@ -11,3 +11,4 @@
         <path d="M4.5 16.5h15" />
     </svg>
 </template>
+<script lang="ts" setup></script>

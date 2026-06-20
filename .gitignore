@@ -15,7 +15,7 @@ dist-ssr
 dist
 .output
 .nuxt
-
+changes.txt
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

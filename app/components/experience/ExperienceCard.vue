@@ -18,7 +18,7 @@
                         {{ role }}
                     </h4>
 
-                    <p class="mt-2 text-lg text-neutral-300 font-mono">
+                    <p class="mt-2 text-lg text-neutral-200 font-mono">
                         {{ company }}
                     </p>
                 </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <p class="mt-6 text-sm md:text-[15px] leading-relaxed text-neutral-400">
+            <p class="mt-6 text-sm md:text-[15px] leading-relaxed text-neutral-300">
                 {{ description }}
             </p>
 
@@ -81,9 +81,9 @@
 </template>
 
 <script setup lang="ts">
-import GithubIcon from './icons/GithubIcon.vue'
-import SiteIcon from './icons/SiteIcon.vue'
-import type { experienceType } from '../data/experience.ts';
+import type { experienceType } from '@/data/experience.js';
+import GithubIcon from '../icons/GithubIcon.vue';
+import SiteIcon from '../icons/SiteIcon.vue';
 
 defineProps<experienceType>()
 </script>
