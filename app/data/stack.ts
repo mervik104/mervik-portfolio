@@ -44,6 +44,7 @@ export const stack: StackCategory[] = [
         label: 'Backend',
         items: [
             { name: 'Node.js', icon: 'skill-icons:nodejs-dark' },
+            { name: 'Payload CMS', icon: 'simple-icons:payloadcms' },
             { name: 'Express.js', icon: 'skill-icons:expressjs-light' },
             { name: 'MongoDB', icon: 'skill-icons:mongodb' },
             { name: 'SQLite', icon: 'skill-icons:sqlite' },
@@ -53,7 +54,6 @@ export const stack: StackCategory[] = [
         label: 'Data & Tools',
         items: [
             { name: 'REST API', icon: 'mdi:api' },
-            { name: 'Payload CMS', icon: 'simple-icons:payloadcms' },
             { name: 'Vite', icon: 'skill-icons:vite-dark' },
             { name: 'Git', icon: 'skill-icons:git' },
         ],

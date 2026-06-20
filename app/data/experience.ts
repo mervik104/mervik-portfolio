@@ -12,7 +12,7 @@ export const experience: experienceType[] = [
     {
         role: 'Fullstack Developer',
         company: "ГК «Некрасовский»",
-        period: 'июнь 2026 — настоящее время',
+        period: 'июнь 2026 — наст.время',
         description:
             'Разработка коммерческого сайта для группы компаний «Некрасовский» на заказ. Полный цикл создания продукта — от архитектуры до UI. Спроектировал backend на Payload CMS, структуру базы данных MongoDB, API и админ-панель. Реализовал frontend на Nuxt с Tailwind: компоненты, анимации, взаимодействие с данными. Добавил тёмную и светлую тему, поддержку трёх языков (русский, английский, китайский). Использовал ISR-подход к рендерингу, провёл SEO-оптимизацию.',
         github: 'https://github.com/RostorVlasov/nekrasovsky-group',
@@ -41,7 +41,7 @@ export const experience: experienceType[] = [
     {
         role: 'CEO & Fullstack Developer',
         company: 'Nuxtgram - Личный проект',
-        period: 'зима 2026 — настоящее время',
+        period: 'зима 2026 — наст.время',
         description:
             'Разработка социальной платформы на стеке Nuxt + Payload CMS + Tailwind. Отвечал за backend-логику, структуру базы данных, API и frontend-интерфейс. Реализовал систему постов, UI-компоненты и базовую архитектуру приложения.',
         github: 'https://github.com/mervik104/nuxtgram-frontend',

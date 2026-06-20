@@ -14,13 +14,8 @@
                         {{ period }}
                     </p>
 
-                    <h4 class="font-display tracking-wide text-xl md:text-2xl text-neutral-100 leading-none">
-                        {{ role }}
-                    </h4>
 
-                    <p class="mt-2 text-lg text-neutral-200 font-mono">
-                        {{ company }}
-                    </p>
+
                 </div>
 
                 <div v-if="status" :class="[
@@ -56,8 +51,14 @@
                     </span>
                 </div>
             </div>
+            <h4 class="mt-1 font-display tracking-wide text-xl md:text-2xl text-neutral-100 leading-none">
+                {{ role }}
+            </h4>
+            <p class="mt-3 sm:text-xl text-xl text-neutral-200 font-mono">
+                {{ company }}
+            </p>
 
-            <p class="mt-6 text-sm md:text-[15px] leading-relaxed text-neutral-300">
+            <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-neutral-300">
                 {{ description }}
             </p>
 
