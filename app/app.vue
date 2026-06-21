@@ -34,14 +34,19 @@ import Hero from './components/shared/Hero.vue';
 
 useReveal()
 
-useSeoMeta({
+useHead({
+  htmlAttrs: {
+    lang: 'ru'
+  },
   title: 'Портфолио MerVik | Веб-разработчик',
-  description: 'Добро пожаловать в моё портфолио.',
-  ogTitle: 'MerVik Portfolio',
-  ogDescription: 'Посмотрите мои работы.',
-  ogImage: '/mervik.jpg',
-  ogUrl: 'https://mervik.ru/',
-  twitterCard: 'summary_large_image'
+  meta: [
+    { name: 'description', content: 'Портфолио веб-разработчика MerVik' },
+    { property: 'og:title', content: 'MerVik Portfolio' },
+    { property: 'og:description', content: 'Посмотрите мои работы.' },
+    { property: 'og:image', content: '/mervik.jpg' },
+    { property: 'og:url', content: 'https://mervik.ru/' },
+    { name: 'twitter:card', content: 'summary_large_image' }
+  ]
 })
 
 </script>

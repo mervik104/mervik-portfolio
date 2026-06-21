@@ -9,7 +9,7 @@
 
         <div class="font-mono text-neutral-300 hyphens-auto leading-6 text-sm md:text-base text-justify">
             <p>
-                Я frontend-разработчик создаю современные
+                Я frontend-разработчик, создаю современные
                 web-интерфейсы и fullstack-приложения. Основной стек —
                 <span class="text-white">Vue.js</span>,
                 <span class="text-white">Nuxt</span>,

@@ -36,7 +36,8 @@ export default defineNuxtConfig({
   site: {
     url: 'https://mervik.ru',
     name: 'MerVik Portfolio',
-    description: 'Портфолио веб-разработчика MerVik'
+    description: 'Портфолио веб-разработчика MerVik',
+    defaultLocale: 'ru'
   },
   app: {
     head: {
