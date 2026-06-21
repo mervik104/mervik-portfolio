@@ -7,10 +7,10 @@
             </h3>
         </div>
 
-        <div class="font-mono text-neutral-300 leading-6 text-sm md:text-base text-justify">
+        <div class="font-mono text-neutral-300 hyphens-auto leading-6 text-sm md:text-base text-justify">
             <p>
-                Я frontend-разработчик, специализирующийся на создании современных
-                web-интерфейсов и fullstack-приложений. Основной стек —
+                Я frontend-разработчик создаю современные
+                web-интерфейсы и fullstack-приложения. Основной стек —
                 <span class="text-white">Vue.js</span>,
                 <span class="text-white">Nuxt</span>,
                 <span class="text-white">React</span> и
@@ -34,7 +34,7 @@
             </p>
 
             <p class="mt-4">
-                Чаще всего работаю в связке <span class="text-white">Nuxt + Payload CMS</span> — это позволяет вести весь продукт самостоятельно: от
+                Чаще всего работаю в связке <span class="text-white">Nuxt</span> + <span class="text-red-400">Payload CMS</span> — это позволяет вести весь продукт самостоятельно: от
                 структуры базы данных и API до финального интерфейса. Такой подход даёт полный контроль над архитектурой
                 и сокращает время на согласование между frontend и backend частями.
             </p>

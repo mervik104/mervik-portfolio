@@ -36,6 +36,7 @@ export const stack: StackCategory[] = [
         label: 'Styling',
         items: [
             { name: 'HTML5', icon: 'skill-icons:html' },
+            { name: 'CSS', icon: 'skill-icons:css' },
             { name: 'SCSS', icon: 'skill-icons:sass' },
             { name: 'Tailwind CSS', icon: 'skill-icons:tailwindcss-dark' },
         ],
@@ -56,6 +57,9 @@ export const stack: StackCategory[] = [
             { name: 'REST API', icon: 'mdi:api' },
             { name: 'Vite', icon: 'skill-icons:vite-dark' },
             { name: 'Git', icon: 'skill-icons:git' },
+            { name: 'Npm', icon: 'skill-icons:npm-dark' },
+            { name: 'Bun', icon: 'skill-icons:bun-dark' },
+            { name: 'Yarn', icon: 'skill-icons:yarn-dark' }
         ],
     },
 ]

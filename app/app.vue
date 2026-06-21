@@ -2,7 +2,8 @@
   <div
     class="relative w-full min-h-screen bg-neutral-950 text-neutral-200 overflow-hidden selection:bg-red-600 selection:text-white">
     <Background />
-    <main class="relative z-10 max-w-5xl mx-auto border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
+    <main
+      class="relative z-10 max-w-5xl mx-auto border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
 
       <Hero />
       <Contacts />
@@ -10,14 +11,17 @@
       <Stack />
       <Experience />
 
-      <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
-        <span class="h-px w-10 bg-red-600 shrink-0" />
-        <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
-          Свяжитесь со мной
-        </h3>
+      <div class="reveal">
+        <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
+          <span class="h-px w-10 bg-red-600 shrink-0" />
+          <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
+            Свяжитесь со мной
+          </h3>
+        </div>
+
+        <Contacts />
       </div>
 
-      <Contacts />
       <Footer />
 
     </main>
