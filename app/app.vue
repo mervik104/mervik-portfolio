@@ -40,6 +40,7 @@ useHead({
   },
   title: 'Портфолио MerVik | Веб-разработчик',
   meta: [
+    { name: 'theme-color', content: '#0B0B0B'},
     { name: 'description', content: 'Портфолио веб-разработчика MerVik' },
     { property: 'og:title', content: 'MerVik Portfolio' },
     { property: 'og:description', content: 'Посмотрите мои работы.' },
