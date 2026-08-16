@@ -1,5 +1,7 @@
 <template>
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <div ref="particlesHost" class="absolute inset-0" />
+
         <div class="noise" />
 
         <div
@@ -11,7 +13,9 @@
 </template>
 
 <script setup lang="ts">
-useDrops()
+const particlesHost = ref<HTMLElement | null>(null)
+
+useParticles(particlesHost)
 </script>
 
 <style scoped>
@@ -22,17 +26,5 @@ useDrops()
     background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
     background-size: 3px 3px;
     mix-blend-mode: overlay;
-}
-
-.particles-canvas {
-  position: fixed;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-
-  z-index: -1;
 }
 </style>

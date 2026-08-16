@@ -3,12 +3,12 @@
         <div class="section-heading flex items-center gap-4 mb-8 md:mb-10">
             <span class="h-px w-10 bg-red-600 shrink-0" />
             <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-200">
-                Опыт работы
+                {{ t('experience.title') }}
             </h3>
         </div>
 
         <div class="grid gap-5">
-            <ExperienceCard v-bind="data" :key="idx" v-for="(data, idx) in experience"/>
+            <ExperienceCard v-for="item in experience" :key="item.company.ru" :item="item" />
         </div>
 
     </section>
@@ -16,5 +16,7 @@
 
 <script lang="ts" setup>
 import { experience } from '@/data/experience';
+
+const { t } = useI18n()
 
 </script>

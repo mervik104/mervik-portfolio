@@ -1,7 +1,7 @@
 <template>
   <header class="mb-16 mt-8 md:mb-24 reveal">
     <h2 class="font-mono text-red-500 text-xs tracking-[0.35em] uppercase border-b border-red-900/25 pb-2 mb-8 w-fit">
-      Portfolio
+      {{ t('hero.badge') }}
     </h2>
     <div class="flex flex-row items-center gap-5 group">
       <div class="relative shrink-0">
@@ -15,15 +15,16 @@
           MerVik
         </h1>
         <p class="font-mono text-red-500 tracking-[0.22em] uppercase text-[10px] md:text-[14px]">
-          Frontend / Fullstack Developer
+          {{ t('hero.subtitle') }}
         </p>
       </div>
     </div>
     <p
       class="font-mono text-neutral-300 text-base md:text-lg border-l-2 border-red-600 pl-4 mt-8 max-w-xl leading-relaxed">
-      Создаю современные интерфейсы и fullstack-приложения
-      с акцентом на архитектуру, UX и производительность.
+      {{ t('hero.tagline') }}
     </p>
   </header>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { t } = useI18n()
+</script>

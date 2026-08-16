@@ -1,7 +1,7 @@
 <template>
     <section class="mb-16 md:mb-12 reveal reveal-delay-1">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-sm">
-            <ContactItem v-for="contact in contacts" :href="contact.href" :icon="contact.icon" :text="contact.text" :key="contact.href" />
+            <ContactItem v-for="contact in contacts" :href="contact.href" :icon="contact.icon" :text="t(contact.key)" :key="contact.key" />
         </div>
     </section>
 </template>
@@ -13,10 +13,12 @@ import TelegramIcon from '../icons/TelegramIcon.vue';
 import GithubIcon from '../icons/GithubIcon.vue';
 import MailIcon from '../icons/MailIcon.vue';
 
+const { t } = useI18n()
+
 const contacts = [
-    { href: TELEGRAM, text: 'Telegram: @mervik104', icon: TelegramIcon },
-    { href: GITHUB, text: 'GitHub: mervik104', icon: GithubIcon },
-    { href: MAIL, text: 'mervik104@gmail.com', icon: MailIcon },
+    { key: 'contacts.telegram', href: TELEGRAM, icon: TelegramIcon },
+    { key: 'contacts.github', href: GITHUB, icon: GithubIcon },
+    { key: 'contacts.mail', href: MAIL, icon: MailIcon },
 ];
 
 </script>

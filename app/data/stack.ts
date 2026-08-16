@@ -4,20 +4,20 @@ export interface StackTech {
 }
 
 export interface StackCategory {
-    label: string
+    key: string
     items: StackTech[]
 }
 
 export const stack: StackCategory[] = [
     {
-        label: 'Core',
+        key: 'core',
         items: [
             { name: 'JavaScript', icon: 'skill-icons:javascript' },
             { name: 'TypeScript', icon: 'skill-icons:typescript' },
         ],
     },
     {
-        label: 'Frontend',
+        key: 'frontend',
         items: [
             { name: 'React', icon: 'skill-icons:react-dark' },
             { name: 'Vue.js', icon: 'skill-icons:vuejs-dark' },
@@ -25,7 +25,7 @@ export const stack: StackCategory[] = [
         ],
     },
     {
-        label: 'State',
+        key: 'state',
         items: [
             { name: 'Redux', icon: 'skill-icons:redux' },
             { name: 'Pinia', icon: 'skill-icons:pinia-dark' },
@@ -33,7 +33,7 @@ export const stack: StackCategory[] = [
         ],
     },
     {
-        label: 'Styling',
+        key: 'styling',
         items: [
             { name: 'HTML5', icon: 'skill-icons:html' },
             { name: 'CSS', icon: 'skill-icons:css' },
@@ -42,7 +42,7 @@ export const stack: StackCategory[] = [
         ],
     },
     {
-        label: 'Backend',
+        key: 'backend',
         items: [
             { name: 'Node.js', icon: 'skill-icons:nodejs-dark' },
             { name: 'Payload CMS', icon: 'simple-icons:payloadcms' },
@@ -52,7 +52,7 @@ export const stack: StackCategory[] = [
         ],
     },
     {
-        label: 'Data & Tools',
+        key: 'dataTools',
         items: [
             { name: 'REST API', icon: 'mdi:api' },
             { name: 'Vite', icon: 'skill-icons:vite-dark' },

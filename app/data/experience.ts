@@ -1,50 +1,92 @@
-export interface experienceType {
-    role: string
-    company: string
-    description: string
-    period: string
+export type Locale = 'ru' | 'en'
+
+export interface Localized {
+    ru: string
+    en: string
+}
+
+export interface Experience {
+    role: Localized
+    company: Localized
+    description: Localized
+    period: Localized
     github?: string
     website?: string
     status?: 'completed' | 'development'
+    image?: string
 }
 
-export const experience: experienceType[] = [
+export const experience: Experience[] = [
     {
-        role: 'Fullstack Developer',
-        company: "ГК «Некрасовский»",
-        period: 'июнь 2026 — наст.время',
-        description:
-            'Разработка коммерческого сайта для группы компаний «Некрасовский» на заказ. Полный цикл создания продукта — от архитектуры до UI. Спроектировал backend на Payload CMS, структуру базы данных MongoDB, API и админ-панель. Реализовал frontend на Nuxt с Tailwind: компоненты, анимации, взаимодействие с данными. Добавил тёмную и светлую тему, поддержку трёх языков (русский, английский, китайский). Использовал ISR-подход к рендерингу, провёл SEO-оптимизацию.',
-        github: 'https://github.com/RostorVlasov/nekrasovsky-group',
-        status: 'development',
+        role: { ru: 'Fullstack Developer', en: 'Fullstack Developer' },
+        company: { ru: 'ГК «Некрасовский»', en: 'Nekrasovsky Group' },
+        period: { ru: 'июнь 2026 — август 2026', en: 'June 2026 — August 2026' },
+        description: {
+            ru:
+                'Коммерческий сайт для группы компаний Некрасовский на заказ. Ключевой фокус — презентация бизнеса для международной аудитории: реализовал поддержку трёх языков (русский, английский, китайский) и переключение тёмной/светлой темы. Спроектировал backend на Payload CMS с админ-панелью для самостоятельного управления контентом заказчиком, структуру MongoDB и API. Frontend — Nuxt + Tailwind, ISR-рендеринг, SEO-оптимизация под коммерческий трафик.',
+            en:
+                'Commercial website for the Nekrasovsky group of companies. Key focus — presenting the business to an international audience: implemented three-language support (Russian, English, Chinese) and dark/light theme switching. Designed a backend on Payload CMS with an admin panel so the client can manage content independently, plus the MongoDB structure and API. Frontend — Nuxt + Tailwind, ISR rendering, SEO optimization for commercial traffic.',
+        },
+        website: 'https://nekras.ru',
+        status: 'completed',
+        image: 'https://i.ibb.co/tTxCVfcm/favicon.png'
     },
     {
-        role: 'CTO & Fullstack Developer',
-        company: 'Freshcheck',
-        period: 'май 2026 — июнь 2026',
-        description:
-            'Разработка сайта для Freshcheck — независимой гражданской инициативы жителей Астрахани. Полный цикл разработки продукта — от архитектуры до UI. Спроектировал backend на Payload CMS, структуру базы данных MongoDB, API и админ-панель. Реализовал frontend на Nuxt с Tailwind: компоненты, анимации, взаимодействие с данными. Добавил тёмную и светлую тему, использовал ISR-подход к рендерингу. Провёл SEO-оптимизацию.',
+        role: { ru: 'Fullstack Developer', en: 'Fullstack Developer' },
+        company: { ru: 'Internetlab (тестовое задание)', en: 'Internetlab (test assignment)' },
+        period: { ru: 'июль 2026 — июль 2026', en: 'July 2026 — July 2026' },
+        description: {
+            ru:
+                'Тестовое задание: форма обратной связи с анализом тональности сообщений через Google Gemini AI. Backend на FastAPI с слоистой архитектурой (API / Service / Repository), Pydantic-валидация, rate limiting и логирование запросов. Frontend на Nuxt 4 с Pinia и Tailwind CSS 4. Реализован graceful fallback при недоступности AI-модели, автогенерация Swagger-документации.',
+            en:
+                'Test assignment: a contact form with message sentiment analysis via Google Gemini AI. Backend on FastAPI with layered architecture (API / Service / Repository), Pydantic validation, rate limiting and request logging. Frontend on Nuxt 4 with Pinia and Tailwind CSS 4. Implemented a graceful fallback when the AI model is unavailable, and auto-generated Swagger documentation.',
+        },
+        github: 'https://github.com/mervik104/internetlab-contact-form-ai',
+        status: 'completed',
+        image: 'https://internetlab.ru/front/img/logo-white.svg'
+    },
+    {
+        role: { ru: 'Fullstack Developer', en: 'Fullstack Developer' },
+        company: { ru: 'Freshcheck', en: 'Freshcheck' },
+        period: { ru: 'май 2026 — июнь 2026', en: 'May 2026 — June 2026' },
+        description: {
+            ru:
+                'Сайт для гражданской инициативы жителей Астрахани — независимый проект с open-source кодом. Здесь в приоритете была скорость запуска и открытость: backend на Payload CMS + MongoDB. Frontend на Nuxt + Tailwind с тёмной/светлой темой, ISR и SEO — чтобы контент по проверкам находился в поиске и быстро обновлялся.',
+            en:
+                'Website for a civic initiative of Astrakhan residents — an independent project with open-source code. The priority here was speed to launch and openness: backend on Payload CMS + MongoDB. Frontend on Nuxt + Tailwind with dark/light theme, ISR and SEO — so inspection content shows up in search and updates fast.',
+        },
         github: 'https://github.com/RostorVlasov/prosrochkapatrol',
         website: 'https://freshcheckastra.ru/',
         status: 'completed',
+        image: 'https://api.freshcheckastra.ru/api/media/file/Frame%20433-1.png'
     },
     {
-        role: 'Frontend Developer',
-        company: 'Личный проект',
-        period: 'июнь 2026 — июнь 2026',
-        description:
-            'Разработал этот сайт-визитку на Nuxt и Tailwind CSS v4. Задеплоил на GitHub Pages.',
+        role: { ru: 'Frontend Developer', en: 'Frontend Developer' },
+        company: { ru: 'Личный проект', en: 'Personal project' },
+        period: { ru: 'июнь 2026 — июнь 2026', en: 'June 2026 — June 2026' },
+        description: {
+            ru:
+                'Разработал этот сайт-визитку на Nuxt и Tailwind CSS v4. Задеплоил на GitHub Pages.',
+            en:
+                'Built this portfolio site with Nuxt and Tailwind CSS v4. Deployed to GitHub Pages.',
+        },
         github: 'https://github.com/mervik104/mervik-portfolio',
         website: 'https://mervik.ru/',
         status: 'completed',
+        image: './mervik.jpg'
     },
     {
-        role: 'CEO & Fullstack Developer',
-        company: 'Nuxtgram - Личный проект',
-        period: 'зима 2026 — наст.время',
-        description:
-            'Разработка социальной платформы на стеке Nuxt + Payload CMS + Tailwind. Отвечал за backend-логику, структуру базы данных, API и frontend-интерфейс. Реализовал систему постов, UI-компоненты и базовую архитектуру приложения.',
+        role: { ru: 'Fullstack Developer', en: 'Fullstack Developer' },
+        company: { ru: 'Nuxtgram - Личный проект', en: 'Nuxtgram - Personal project' },
+        period: { ru: 'зима 2026 — наст.время', en: 'Winter 2026 — present' },
+        description: {
+            ru:
+                'Разработка социальной платформы на стеке Nuxt + Payload CMS + Tailwind. Отвечал за backend-логику, структуру базы данных, API и frontend-интерфейс. Реализовал систему постов, UI-компоненты и базовую архитектуру приложения.',
+            en:
+                "Building a social platform on the Nuxt + Payload CMS + Tailwind stack. Responsible for backend logic, database structure, API and frontend interface. Implemented the post system, UI components and the app's base architecture.",
+        },
         github: 'https://github.com/mervik104/nuxtgram-frontend',
         status: 'development',
-    }
+        image: './nuxtgram.png'
+    },
 ]

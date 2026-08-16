@@ -21,12 +21,33 @@ export default defineNuxtConfig({
   features: {
     inlineStyles: true,
   },
-  modules: ['nuxt-single-html', '@nuxtjs/seo'],
+  modules: ['nuxt-single-html', '@nuxtjs/i18n', '@nuxtjs/seo'],
   singleHtml: {
     enabled: true,
     deleteInlinedFiles: true,
     output: 'index.html'
   },
+
+  i18n: {
+    locales: [
+      { code: 'ru', language: 'ru-RU', file: 'ru.ts' },
+      { code: 'en', language: 'en-US', file: 'en.ts' },
+    ],
+    defaultLocale: 'ru',
+    strategy: 'no_prefix',
+    langDir: 'locales',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'lang',
+      alwaysRedirect: false,
+    },
+    // messages держим в JS-бандле (а не в /_i18n/.../messages.json),
+    // чтобы nuxt-single-html всё заинлайнил в один index.html
+    experimental: {
+      optimizeMessageBundling: false,
+    },
+  },
+
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [
@@ -41,14 +62,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'ru'
-      },
-      title: 'Портфолио MerVik | Веб-разработчик',
+      script: [
+        // добавляем класс js на <html> как можно раньше — без JS контент не скрывается
+        { innerHTML: "document.documentElement.classList.add('js')", tagPriority: 'critical' },
+      ],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-        { name: 'description', content: 'Портфолио MerVik — Vue / Nuxt / Fullstack разработчик. Проекты, опыт и контакты.' },
       ],
       link: [
         { rel: 'icon', href: './favicon.ico' }

@@ -2,8 +2,13 @@
   <div
     class="relative w-full min-h-screen bg-neutral-950 text-neutral-200 overflow-hidden selection:bg-red-600 selection:text-white">
     <Background />
+
+    <div class="fixed top-4 right-4 md:top-6 md:right-6 z-30">
+      <LanguageToggle />
+    </div>
+
     <main
-      class="relative z-10 max-w-5xl mx-auto border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
+      class="relative z-10 max-w-5xl mx-auto bg-neutral-950 border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
 
       <Hero />
       <Contacts />
@@ -15,7 +20,7 @@
         <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
           <span class="h-px w-10 bg-red-600 shrink-0" />
           <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
-            Свяжитесь со мной
+            {{ t('contact.title') }}
           </h3>
         </div>
 
@@ -31,19 +36,20 @@
 <script setup lang="ts">
 import Background from './components/shared/Background.vue';
 import Hero from './components/shared/Hero.vue';
+import LanguageToggle from './components/shared/LanguageToggle.vue';
 
 useReveal()
 
+const { t, locale } = useI18n()
+
 useHead({
-  htmlAttrs: {
-    lang: 'ru'
-  },
-  title: 'Портфолио MerVik | Веб-разработчик',
+  htmlAttrs: computed(() => ({ lang: locale.value })),
+  title: computed(() => t('meta.title')),
   meta: [
     { name: 'theme-color', content: '#0B0B0B'},
-    { name: 'description', content: 'Портфолио веб-разработчика MerVik' },
-    { property: 'og:title', content: 'MerVik Portfolio' },
-    { property: 'og:description', content: 'Посмотрите мои работы.' },
+    { name: 'description', content: computed(() => t('meta.description')) },
+    { property: 'og:title', content: computed(() => t('meta.ogTitle')) },
+    { property: 'og:description', content: computed(() => t('meta.ogDescription')) },
     { property: 'og:image', content: '/mervik.jpg' },
     { property: 'og:url', content: 'https://mervik.ru/' },
     { name: 'twitter:card', content: 'summary_large_image' }
@@ -108,12 +114,16 @@ useHead({
 }
 
 .reveal {
+  opacity: 1;
+}
+
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.revealed {
+.js .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
