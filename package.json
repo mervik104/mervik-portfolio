@@ -19,6 +19,7 @@
     "gh-pages": "^6.3.0",
     "nuxt": "^4.4.6",
     "nuxt-single-html": "0.2.0",
+    "tailwind-variants": "^3.3.1",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.34",
     "vue-router": "^5.0.7"

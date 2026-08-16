@@ -12,7 +12,8 @@ export interface Experience {
     period: Localized
     github?: string
     website?: string
-    status?: 'completed' | 'development'
+    status?: 'completed' | 'development' | 'education'
+    commercial?: boolean
     image?: string
 }
 
@@ -29,6 +30,7 @@ export const experience: Experience[] = [
         },
         website: 'https://nekras.ru',
         status: 'completed',
+        commercial: true,
         image: 'https://i.ibb.co/tTxCVfcm/favicon.png'
     },
     {
@@ -58,6 +60,7 @@ export const experience: Experience[] = [
         github: 'https://github.com/RostorVlasov/prosrochkapatrol',
         website: 'https://freshcheckastra.ru/',
         status: 'completed',
+        commercial: true,
         image: 'https://api.freshcheckastra.ru/api/media/file/Frame%20433-1.png'
     },
     {
@@ -88,5 +91,17 @@ export const experience: Experience[] = [
         github: 'https://github.com/mervik104/nuxtgram-frontend',
         status: 'development',
         image: './nuxtgram.png'
+    },
+    {
+        role: { ru: 'Самообучение', en: 'Self-education' },
+        company: { ru: 'Путь в разработку', en: 'Path into development' },
+        period: { ru: 'май 2025 — январь 2026', en: 'May 2025 — January 2026' },
+        description: {
+            ru:
+                'Погружение в разработку с нуля: начал с основ — HTML, CSS и JavaScript, разобрался с версткой, DOM и логикой интерфейсов. Далее изучил React и CSS-фреймворки (Tailwind CSS), собирал первые компонентные приложения. Постепенно перешёл на Vue и Nuxt — этот стек оказался ближе по архитектуре, реактивности и developer experience, и с тех пор стал основным. На завершающем этапе занялся backend-разработкой: Node.js, работа с базами данных, проектирование REST API. Параллельно осваивал современные AI-инструменты (Cursor, Claude, GitHub Copilot и подобные) как часть повседневного workflow — для ускорения разработки, ревью кода и решения нетиповых задач.',
+            en:
+                'A from-scratch journey into development: started with the fundamentals — HTML, CSS and JavaScript, learning markup, the DOM, and interface logic. Moved on to React and CSS frameworks (Tailwind CSS), building early component-based apps. Gradually transitioned to Vue and Nuxt — this stack felt closer in architecture, reactivity, and developer experience, and has been my primary stack since. In the final stage, picked up backend development: Node.js, databases, REST API design. Alongside this, adopted modern AI tools (Cursor, Claude, GitHub Copilot and similar) as part of the everyday workflow — for speeding up development, code review, and tackling non-trivial problems.',
+        },
+        status: 'education',
     },
 ]

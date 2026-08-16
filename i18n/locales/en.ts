@@ -9,7 +9,7 @@ export default defineI18nLocale(() => ({
     badge: 'Portfolio',
     subtitle: 'Frontend / Fullstack Developer',
     tagline:
-      'I build modern interfaces and fullstack applications with a focus on architecture, UX and performance.',
+      'Over 2026 I shipped 2 commercial projects (including an international website in 3 languages). I am looking for a Frontend/Fullstack developer position. Open to offers — we can agree quickly, message me on Telegram.',
   },
   about: {
     title: 'About me',
@@ -31,6 +31,8 @@ export default defineI18nLocale(() => ({
     title: 'Experience',
     completed: 'Completed',
     inDevelopment: 'In development',
+    education: 'Education',
+    commercial: 'Commercial',
     openSite: 'Visit site',
     showMore: 'Show more',
     showLess: 'Show less',
