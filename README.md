@@ -1,29 +1,41 @@
-# MerVik — Сайт-визитка
+# MerVik — Сайт-визитка и PDF-резюме
 
-Портфолио веб-разработчика MerVik (Boris Stepanenko). Одностраничный сайт-визитка на **Nuxt 4** с тёмной темой, красными акцентами и анимированным фоном-«созвездием».
+Портфолио веб-разработчика MerVik (Boris Stepanenko). Одностраничный сайт-визитка на **Nuxt 4** с тёмной темой, красными акцентами и анимированным фоном-«созвездием», плюс печатные резюме RU/EN, генерируемые из тех же данных в **PDF**.
 
 **Живая версия:** [mervik.ru](https://mervik.ru/)
+**Резюме онлайн:** [mervik.ru/resume/ru](https://mervik.ru/resume/ru) · [mervik.ru/resume/en](https://mervik.ru/resume/en)
 
 ## Стек
 
-- [Nuxt 4](https://nuxt.com) (SSG, single-page output)
+- [Nuxt 4](https://nuxt.com) (SSG, prerender)
 - [Tailwind CSS v4](https://tailwindcss.com) + Vite-плагин
 - [@nuxtjs/i18n](https://i18n.nuxtjs.org) — русский и английский
 - [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, Open Graph
-- [nuxt-single-html](https://github.com/harlan-zw/nuxt-single-html) — инлайнит JS/CSS в один `index.html`
+- [nuxt-single-html](https://github.com/harlan-zw/nuxt-single-html) — инлайнит JS/CSS в каждый `index.html`
+- [puppeteer-core](https://pptr.dev/) + локальный Chrome — генерация PDF-резюме из свёрстанной страницы
 - [gh-pages](https://github.com/tschaub/gh-pages) — деплой на GitHub Pages
 - [tsParticles](https://particles.js.org/) — фон «созвездие» (Links-пресет, красная палитра)
 
 ## Возможности
 
-- **Один файл** — вся сборка инлайнится в `index.html` (~580 КБ), хостится на GitHub Pages
+### Сайт
+
+- **Инлайн-сборка** — JS/CSS каждой страницы инлайнятся в её `index.html`, хостится на GitHub Pages
 - **Мультиязычность** — RU/EN с переключателем, без префиксов в URL
-- **SEO** — sitemap.xml, robots.txt, Open Graph/Twitter-карточки, `theme-color`, локаль в `<html lang>`
-- **Фон-«созвездие»** — tsParticles (Links-пресет) в красных тонах: сеть точек и линий, hover-«grab» от курсора; канвас растянут на высоту документа и «листается» со страницей, под контентом скрыт плотным фоном колонки; включается на широких экранах, уважает `prefers-reduced-motion`
-- **Анимации появления** секций через IntersectionObserver
-- **Без JS контент не пропадает** — reveal-анимации включаются только при работающем JS
+- **SEO** — sitemap.xml, robots.txt, Open Graph/Twitter-карточки, корректные `<html lang>`/`og:locale` на каждой странице
+- **Фон-«созвездие»** — tsParticles (Links-пресет) в красных тонах с hover-«grab»; включается на широких экранах, уважает `prefers-reduced-motion`
+- **Анимации появления** секций через IntersectionObserver; без JS контент не пропадает
 - **Fallback изображений** проектов — при битой картинке показываются инициалы компании
-- **Доступность** — `aria-pressed`, `role="status"`, `focus-visible`, `noopener` на внешних ссылках
+- **Доступность** — `aria-*`, `focus-visible`, `noopener` на внешних ссылках
+
+### Резюме и PDF
+
+- **Страницы резюме** `/resume/ru` и `/resume/en` — деловая белая вёрстка с брендовыми акцентами, отдельный layout без шапки/футера сайта
+- **PDF-генерация** (`scripts/generate-resume-pdf.mjs`): поднимает локальный сервер над `.output/public`, печатает страницы резюме через Chrome в A4 c фоном
+- **Колонтитул PDF**: на каждой странице — «Резюме скачано с сайта mervik.ru · актуально на `<дата>`» и «Стр. N из M», серым мелким шрифтом
+- **Кликабельные ссылки в PDF**: телефон, Telegram, GitHub, почта, сайт mervik.ru в контактах; у каждого проекта — ссылки на сайт и репозиторий GitHub, если есть
+- **Пагинация**: стр. 1 — шапка с фото, «Обо мне», контакты, стек, языки, образование; стр. 2 — опыт работы; запрет разрывов внутри блоков (`resume-avoid-break`)
+- **Печать из браузера** — те же стили работают при Ctrl/Cmd+P на страницах `/resume/*`
 
 ## Быстрый старт
 
@@ -38,6 +50,9 @@ bun run dev
 # продакшен-сборка (статический вывод в .output/public)
 bun run build
 
+# генерация PDF-резюме (нужна собранная сборка + Chrome)
+bun run generate:pdf
+
 # локальный просмотр собранной версии
 bun run preview
 ```
@@ -48,30 +63,47 @@ bun run preview
 | --- | --- |
 | `dev` | Dev-сервер с HMR |
 | `build` | Статическая генерация (`nuxi generate`) |
+| `generate:pdf` | Печать `/resume/{ru,en}` в `public/` и `.output/public` PDF (Chrome ищется автоматически, override — `CHROME_PATH=/путь/к/chrome`) |
 | `preview` | Локальный предпросмотр `.output/public` |
 | `icons:download` | Скачивание SVG-иконок стека в `public/icons` |
-| `deploy` | Сборка + публикация на GitHub Pages (`gh-pages -d dist`) |
+| `deploy` | Сборка → генерация PDF → публикация на GitHub Pages (`gh-pages -d dist`) |
 
 > `dist` — симлинк на `.output/public`.
+>
+> PDF пишется сразу в два места: `public/` (чтобы файлы были в dev и в git как страховка) и `.output/public` (чтобы деплой забрал свежие). **Правки `.vue`-файлов попадают в PDF только после `npm run build && npm run generate:pdf`.**
 
 ## Структура проекта
 
 ```
 app/
   assets/css/main.css      — шрифты, тема Tailwind
-  components/              — секции страницы (Hero, About, Stack, ...)
+  components/
+    shared/                — Hero, секции главной
+    experience/            — карточки проектов
+    resume/ResumeSection.vue — секция резюме (опция avoid-break против разрывов страниц)
   composables/
     useParticles.ts        — tsParticles-фон «созвездие» (Links + hover-grab)
     useReveal.ts           — reveal-анимации секций
     useRichText.ts         — подсветка терминов в тексте «Обо мне»
-  data/                    — контакты, стек, опыт (содержимое страницы)
-  utils/iconPath.ts        — путь к иконке по ключу (prefix:name → /icons/...)
+  data/
+    contacts.ts            — ссылки контактов (Telegram, GitHub, почта)
+    experience.ts          — опыт: роль, компания, описание, github?/website?, статус
+    resume.ts              — общие константы: имя, фото, пути к PDF
+    resume.ru.ts/en.ts     — локализованные данные резюме (телефон, формат, часовой пояс, «Обо мне»)
+    stack.ts               — стек технологий
+  layouts/resume.vue       — layout резюме: тулбар (RU/EN, PDF-кнопки), печатные стили
+  pages/
+    index.vue              — главная (сайт-визитка)
+    resume/[lang].vue      — страница резюме (ru/en): шапка, секции, ссылки проектов
 i18n/locales/              — переводы ru.ts / en.ts
-public/                    — статика: favicons, иконки стека, изображения проектов
-nuxt.config.ts             — конфигурация Nuxt, i18n, SEO, single-html
+scripts/
+  generate-resume-pdf.mjs  — PDF-генерация: статический сервер + puppeteer-core
+  download-icons.mjs       — загрузка иконок стека
+public/                    — статика: favicons, иконки, фото, готовые PDF-резюме
+nuxt.config.ts             — Nuxt, i18n, SEO, single-html, prerender-роуты
 ```
 
-Содержимое страницы (стек, проекты, контакты) вынесено в `app/data/` — правки не требуют пересборки логики.
+Содержимое (стек, проекты, контакты, тексты резюме) вынесено в `app/data/` — правки не требуют пересборки логики, но для PDF нужен переген.
 
 ## Деплой
 
@@ -79,10 +111,12 @@ nuxt.config.ts             — конфигурация Nuxt, i18n, SEO, single-
 bun run deploy
 ```
 
-Сборка кладётся в `.output/public` и публикуется в ветку `gh-pages`. Домен `mervik.ru` задаётся через `public/CNAME`.
+Цепочка: `build` (статика + prerender `/`, `/resume/ru`, `/resume/en`) → `generate:pdf` (печать резюме в PDF) → публикация `.output/public` в ветку `gh-pages`. Домен `mervik.ru` задаётся через `public/CNAME`.
 
 ## Особенности конфигурации
 
-- **Одна страница без сервера.** Чтобы `nuxt-single-html` заинлайнил всё в один файл, сообщения i18n держатся в JS-бандле (`experimental.optimizeMessageBundling: false`), а роутинг не используется.
-- **Контент видим без JS.** Класс `js` на `<html>` добавляется инлайн-скриптом в `<head>`; reveal-скрытие контента работает только при его наличии.
-- **Абсолютные пути для SEO.** `og:image` и прочие мета-теги приводятся к абсолютному виду, чтобы соцсети и краулеры корректно их читали.
+- **Одна страница без сервера.** Чтобы `nuxt-single-html` заинлайнил всё, сообщения i18n держатся в JS-бандле (`experimental.optimizeMessageBundling: false`).
+- **Контент видим без JS.** Класс `js` на `<html>` добавляется инлайн-скриптом в `<head>`; reveal-скрытие работает только при его наличии.
+- **Абсолютные пути для SEO.** `og:image` и мета-теги приводятся к абсолютному виду; favicon подключён абсолютным путём `/favicon.ico`, чтобы работал на вложенных страницах `/resume/*`.
+- **Локаль резюме.** Страница `/resume/[lang]` переключает локаль i18n в `useAsyncData`, а `<html lang>`/`og:locale` переопределяются через повышенные `tagPriority` (у `nuxt-seo-utils` дефолты фиксируются на этапе плагина).
+- **Поля PDF задаются в скрипте генерации** (`margin`, `displayHeaderFooter`, `footerTemplate`), а не в CSS `@page` — так нижнее поле гарантированно оставляет место под колонтитул.

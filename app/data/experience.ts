@@ -69,9 +69,9 @@ export const experience: Experience[] = [
         period: { ru: 'июнь 2026 — июнь 2026', en: 'June 2026 — June 2026' },
         description: {
             ru:
-                'Разработал этот сайт-визитку на Nuxt и Tailwind CSS v4. Задеплоил на GitHub Pages.',
+                'Разработал сайт-визитку на Nuxt и Tailwind CSS v4. Задеплоил на GitHub Pages.',
             en:
-                'Built this portfolio site with Nuxt and Tailwind CSS v4. Deployed to GitHub Pages.',
+                'Built portfolio site with Nuxt and Tailwind CSS v4. Deployed to GitHub Pages.',
         },
         github: 'https://github.com/mervik104/mervik-portfolio',
         website: 'https://mervik.ru/',

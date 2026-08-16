@@ -12,10 +12,10 @@
       </div>
       <div>
         <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-wider text-white leading-none">
-          MerVik
+          {{ BRAND }}
         </h1>
         <p class="font-mono text-red-500 tracking-[0.22em] uppercase text-[10px] md:text-[14px]">
-          {{ t('hero.subtitle') }}
+          {{ resume.role }}
         </p>
       </div>
     </div>
@@ -23,8 +23,24 @@
       class="font-mono text-neutral-300 text-base md:text-lg border-l-2 border-red-600 pl-4 mt-8 max-w-xl leading-relaxed">
       {{ t('hero.tagline') }}
     </p>
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a :href="PDF_RU" download rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-xl border border-red-800 bg-red-800/20 px-5 py-2.5 font-mono text-sm text-red-400 transition-all duration-300 hover:border-red-600 hover:bg-red-800/40 hover:text-red-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+        {{ t('hero.downloadRu') }}
+      </a>
+      <a :href="PDF_EN" download rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-xl border border-neutral-800 bg-neutral-900/60 px-5 py-2.5 font-mono text-sm text-neutral-300 transition-all duration-300 hover:border-red-800 hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+        {{ t('hero.downloadEn') }}
+      </a>
+    </div>
   </header>
 </template>
 <script lang="ts" setup>
-const { t } = useI18n()
+import { BRAND, PDF_EN, PDF_RU } from '@/data/resume';
+import { resume as resumeEn } from '@/data/resume.en';
+import { resume as resumeRu } from '@/data/resume.ru';
+
+const { t, locale } = useI18n()
+
+const resume = computed(() => (locale.value === 'en' ? resumeEn : resumeRu))
 </script>

@@ -78,7 +78,7 @@
                     :class="linkButton({ kind: 'github' })">
 
                     <GithubIcon />
-                    GitHub
+                    {{ t('experience.github') }}
                 </a>
 
                 <a v-if="item.website" :href="item.website" target="_blank" rel="noopener noreferrer"

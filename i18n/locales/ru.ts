@@ -7,9 +7,10 @@ export default defineI18nLocale(() => ({
   },
   hero: {
     badge: 'Portfolio',
-    subtitle: 'Frontend / Fullstack Developer',
     tagline:
       'За 2026 год сделал 2 коммерческих проекта (включая международный сайт на 3 языках). Ищу позицию Frontend/Fullstack разработчика. Открыт к предложениям. Договоримся быстро — пишите в Telegram.',
+    downloadRu: 'Скачать резюме (RU)',
+    downloadEn: 'Download CV (EN)',
   },
   about: {
     title: 'Обо мне',
@@ -34,6 +35,7 @@ export default defineI18nLocale(() => ({
     education: 'Обучение',
     commercial: 'Коммерческий',
     openSite: 'Открыть сайт',
+    github: 'GitHub',
     showMore: 'Подробнее',
     showLess: 'Свернуть',
   },
@@ -52,5 +54,22 @@ export default defineI18nLocale(() => ({
     title: 'Переключить язык',
     en: 'English',
     ru: 'Русский',
+  },
+  resume: {
+    pageTitle: 'Резюме',
+    backToSite: 'На сайт',
+    summary: 'Обо мне',
+    education: 'Образование',
+    languages: 'Языки',
+    contacts: 'Контакты',
+    phone: 'Телефон',
+    site: 'mervik.ru — сайт-портфолио',
+    workFormat: 'Формат работы',
+    timezone: 'Часовой пояс',
+    english: 'Английский',
+    russian: 'Русский',
+    native: 'родной',
+    downloadRu: 'Скачать PDF (RU)',
+    downloadEn: 'Download PDF (EN)',
   },
 }))

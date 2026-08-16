@@ -10,11 +10,13 @@ export default defineNuxtConfig({
     preset: 'static',
     static: true,
     prerender: {
-      routes: ['/'],
+      routes: ['/', '/resume/ru', '/resume/en'],
       crawlLinks: false,
     },
     routeRules: {
-      '/': { prerender: true }
+      '/': { prerender: true },
+      '/resume/ru': { prerender: true },
+      '/resume/en': { prerender: true },
     }
   },
 
@@ -60,6 +62,12 @@ export default defineNuxtConfig({
     description: 'Портфолио веб-разработчика MerVik',
     defaultLocale: 'ru'
   },
+  linkChecker: {
+    excludeLinks: [
+      '/Boris_Stepanenko_CV_ru.pdf',
+      '/Boris_Stepanenko_CV_en.pdf',
+    ],
+  },
   app: {
     head: {
       script: [
@@ -71,7 +79,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       ],
       link: [
-        { rel: 'icon', href: './favicon.ico' }
+        { rel: 'icon', href: '/favicon.ico' }
       ]
     }
   },
