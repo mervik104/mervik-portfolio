@@ -32,6 +32,8 @@ export default defineI18nLocale(() => ({
     completed: 'Закончен',
     inDevelopment: 'В разработке',
     openSite: 'Открыть сайт',
+    showMore: 'Подробнее',
+    showLess: 'Свернуть',
   },
   contact: {
     title: 'Свяжитесь со мной',

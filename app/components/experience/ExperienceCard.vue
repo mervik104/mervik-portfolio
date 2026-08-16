@@ -80,9 +80,16 @@
                 {{ item.company[locale] }}
             </p>
 
-            <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-neutral-300">
+            <p ref="textEl" class="mt-2 overflow-hidden text-sm md:text-[15px] leading-relaxed text-neutral-300 transition-[height] duration-300 ease-out"
+                :class="!expanded && 'line-clamp-3'">
                 {{ item.description[locale] }}
             </p>
+
+            <button v-if="needsToggle" type="button" @click="toggle" :aria-expanded="expanded"
+                class="mt-2 inline-flex items-center gap-1.5 rounded-lg text-sm text-red-400 transition-colors duration-200 hover:text-red-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+                {{ expanded ? t('experience.showLess') : t('experience.showMore') }}
+                <ChevronDownIcon :class="['transition-transform duration-200', expanded && 'rotate-180']" />
+            </button>
 
             <div class="flex flex-wrap items-center gap-3 mt-7">
                 <a v-if="item.github" :href="item.github" target="_blank" rel="noopener noreferrer"
@@ -104,10 +111,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import type { Experience } from '@/data/experience';
 import GithubIcon from '../icons/GithubIcon.vue';
 import SiteIcon from '../icons/SiteIcon.vue';
+import ChevronDownIcon from '../icons/ChevronDownIcon.vue';
 
 const props = defineProps<{ item: Experience }>()
 
@@ -115,6 +123,69 @@ const { t, locale } = useI18n()
 
 const imgFailed = ref(false)
 const imgLoaded = ref(false)
+const expanded = ref(false)
+const textEl = ref<HTMLElement | null>(null)
+const needsToggle = ref(false)
+
+let resizeObserver: ResizeObserver | null = null
+
+function checkOverflow() {
+    const el = textEl.value
+    if (!el) return
+    needsToggle.value = el.scrollHeight > el.clientHeight + 1
+}
+
+async function toggle() {
+    const el = textEl.value
+    if (!el) return
+
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+        expanded.value = !expanded.value
+        return
+    }
+
+    const collapsing = expanded.value
+    const from = el.offsetHeight
+
+    expanded.value = !collapsing
+    await nextTick()
+
+    const to = collapsing ? el.offsetHeight : el.scrollHeight
+    if (from === to) return
+
+    el.style.height = `${from}px`
+    void el.offsetHeight
+
+    el.style.height = `${to}px`
+
+    const clearHeight = (e: TransitionEvent) => {
+        if (e.propertyName !== 'height') return
+        el.style.height = ''
+        el.removeEventListener('transitionend', clearHeight)
+    }
+    el.addEventListener('transitionend', clearHeight)
+}
+
+onMounted(() => {
+    checkOverflow()
+    if (textEl.value && typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(() => {
+            if (!expanded.value) checkOverflow()
+        })
+        resizeObserver.observe(textEl.value)
+    }
+})
+
+onBeforeUnmount(() => {
+    resizeObserver?.disconnect()
+    resizeObserver = null
+})
+
+watch(locale, async () => {
+    expanded.value = false
+    await nextTick()
+    checkOverflow()
+})
 
 const initials = computed(() => {
     const name = props.item.company[locale.value]
