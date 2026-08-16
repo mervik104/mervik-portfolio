@@ -55,6 +55,14 @@ export default defineI18nLocale(() => ({
     en: 'English',
     ru: 'Русский',
   },
+  nav: {
+    aria: 'Навигация по разделам',
+    hero: 'Начало',
+    about: 'Обо мне',
+    stack: 'Стек',
+    experience: 'Опыт',
+    contacts: 'Контакты',
+  },
   resume: {
     pageTitle: 'Резюме',
     backToSite: 'На сайт',

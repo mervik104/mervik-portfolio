@@ -20,8 +20,11 @@ export default defineNuxtConfig({
     }
   },
 
+  // ВАЖНО: inlineStyles: true ломает group-hover в проде — Nuxt-инлайнер
+  // превращает `:is(:where(.group):hover *)` в невалидный `:hover*`.
+  // nuxt-single-html инлайнит CSS/JS-файлы в HTML сам, без этой фичи.
   features: {
-    inlineStyles: true,
+    inlineStyles: false,
   },
   modules: ['nuxt-single-html', '@nuxtjs/i18n', '@nuxtjs/seo'],
   singleHtml: {

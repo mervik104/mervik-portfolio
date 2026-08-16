@@ -26,3 +26,6 @@ changes.txt
 *.njsproj
 *.sln
 *.sw?
+
+# сгенерированные PDF-резюме (создаются scripts/generate-resume-pdf.mjs при деплое)
+public/Boris_Stepanenko_CV_*.pdf

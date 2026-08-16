@@ -2,8 +2,8 @@
   <div class="resume-root min-h-screen bg-neutral-100 font-mono text-neutral-900 print:bg-white">
     <div class="resume-sheet max-w-[210mm] mx-auto min-h-screen bg-white shadow-xl sm:shadow-2xl print:max-w-none print:shadow-none">
       <div
-        class="no-print flex flex-wrap items-center justify-between gap-3 border-b border-neutral-100 px-6 pt-4 pb-4 md:px-10">
-        <nav class="flex items-center gap-1 rounded-full border border-neutral-200 bg-neutral-50 p-1 text-xs uppercase tracking-widest"
+        class="no-print flex flex-nowrap items-center justify-between gap-2 border-b border-neutral-100 px-4 py-3 md:px-10 md:py-4">
+        <nav class="flex shrink-0 items-center gap-1 rounded-full border border-neutral-200 bg-neutral-50 p-1 text-xs uppercase tracking-widest"
           role="group" :aria-label="t('language.title')">
           <NuxtLink to="/resume/ru" :class="langLink({ active: lang === 'ru' })" :aria-current="lang === 'ru' ? 'page' : undefined">
             RU
@@ -13,17 +13,25 @@
           </NuxtLink>
         </nav>
 
-        <div class="flex flex-wrap items-center gap-2">
+        <div class="flex min-w-0 items-center gap-1.5">
+          <a :href="currentPdf" download rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-medium tracking-wide text-red-700 transition-colors duration-200 hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 sm:hidden">
+            PDF ↓
+          </a>
           <a :href="PDF_RU" download rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-medium tracking-wide text-red-700 transition-colors duration-200 hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600">
+            class="hidden items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-medium tracking-wide text-red-700 transition-colors duration-200 hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 sm:inline-flex">
             {{ t('resume.downloadRu') }}
           </a>
           <a :href="PDF_EN" download rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-medium tracking-wide text-red-700 transition-colors duration-200 hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600">
+            class="hidden items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-medium tracking-wide text-red-700 transition-colors duration-200 hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 sm:inline-flex">
             {{ t('resume.downloadEn') }}
           </a>
+          <NuxtLink to="/" :aria-label="t('resume.backToSite')"
+            class="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-1.5 text-xs tracking-wide text-neutral-500 transition-colors duration-200 hover:border-red-200 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 sm:hidden">
+            ←
+          </NuxtLink>
           <NuxtLink to="/"
-            class="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-1.5 text-xs tracking-wide text-neutral-500 transition-colors duration-200 hover:border-red-200 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600">
+            class="hidden items-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-1.5 text-xs tracking-wide text-neutral-500 transition-colors duration-200 hover:border-red-200 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 sm:inline-flex">
             ← {{ t('resume.backToSite') }}
           </NuxtLink>
         </div>
@@ -44,6 +52,8 @@ const { t } = useI18n()
 const route = useRoute()
 
 const lang = computed<'ru' | 'en'>(() => (route.params.lang === 'en' ? 'en' : 'ru'))
+
+const currentPdf = computed(() => (lang.value === 'en' ? PDF_EN : PDF_RU))
 
 const langLink = tv({
     base: 'rounded-full px-3 py-1.5 transition-all duration-200',

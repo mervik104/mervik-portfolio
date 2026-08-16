@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="overflow-x-hidden">
         <header class="resume-avoid-break flex flex-col gap-5 sm:flex-row sm:items-center">
             <div class="relative shrink-0">
                 <div class="absolute inset-0 scale-150 rounded-full bg-red-600/15 blur-2xl" />

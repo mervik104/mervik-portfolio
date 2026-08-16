@@ -9,16 +9,26 @@
       </ClientOnly>
     </div>
 
+    <SectionNav :sections="navSections" />
+
     <main
       class="relative z-10 max-w-5xl mx-auto bg-neutral-950 border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
 
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <Contacts />
-      <About />
-      <Stack />
-      <Experience />
+      <div id="about">
+        <About />
+      </div>
+      <div id="stack">
+        <Stack />
+      </div>
+      <div id="experience">
+        <Experience />
+      </div>
 
-      <div class="reveal">
+      <div id="contacts" class="reveal">
         <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
           <span class="h-px w-10 bg-red-600 shrink-0" />
           <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
@@ -39,10 +49,19 @@
 import Background from '@/components/shared/Background.vue';
 import Hero from '@/components/shared/Hero.vue';
 import LanguageToggle from '@/components/shared/LanguageToggle.vue';
+import SectionNav from '@/components/shared/SectionNav.vue';
 
 useReveal()
 
 const { t, locale } = useI18n()
+
+const navSections = computed(() => [
+  { id: 'hero', label: t('nav.hero') },
+  { id: 'about', label: t('nav.about') },
+  { id: 'stack', label: t('nav.stack') },
+  { id: 'experience', label: t('nav.experience') },
+  { id: 'contacts', label: t('nav.contacts') },
+])
 
 useHead({
   htmlAttrs: computed(() => ({ lang: locale.value })),
@@ -61,6 +80,12 @@ useHead({
 </script>
 
 <style>
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @keyframes float {
 
   0%,

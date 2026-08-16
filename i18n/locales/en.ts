@@ -53,7 +53,15 @@ export default defineI18nLocale(() => ({
   language: {
     title: 'Switch language',
     en: 'English',
-    ru: 'Russian',
+    ru: 'Русский',
+  },
+  nav: {
+    aria: 'Section navigation',
+    hero: 'Top',
+    about: 'About',
+    stack: 'Stack',
+    experience: 'Experience',
+    contacts: 'Contacts',
   },
   resume: {
     pageTitle: 'Resume',
