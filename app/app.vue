@@ -4,7 +4,9 @@
     <Background />
 
     <div class="fixed top-4 right-4 md:top-6 md:right-6 z-30">
-      <LanguageToggle />
+      <ClientOnly>
+        <LanguageToggle />
+      </ClientOnly>
     </div>
 
     <main

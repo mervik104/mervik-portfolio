@@ -80,7 +80,7 @@
                 {{ item.company[locale] }}
             </p>
 
-            <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-neutral-300 line-clamp-3">
+            <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-neutral-300">
                 {{ item.description[locale] }}
             </p>
 
