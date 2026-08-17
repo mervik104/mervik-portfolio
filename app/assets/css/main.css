@@ -87,3 +87,17 @@ input {
     --font-display: "Bebas Neue", sans-serif;
     --font-mono: "DM Mono", monospace;
 }
+
+/* Ссылки в About — underline с анимацией слева направо */
+.about-text a[href^="http"] {
+    background-image: linear-gradient(#f87171, #f87171);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+}
+
+.about-text a[href^="http"]:hover {
+    background-size: 100% 1px;
+}
+

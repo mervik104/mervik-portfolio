@@ -1,6 +1,7 @@
 export interface HighlightToken {
     text: string
     class?: string
+    href?: string
 }
 
 export function useRichText() {

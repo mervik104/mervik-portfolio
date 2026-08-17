@@ -10,6 +10,8 @@
             :class="langButton({ active: locale === loc.code })"
             :aria-pressed="locale === loc.code"
             @click="setLocale(loc.code)">
+            <FlagRu v-if="loc.code === 'ru'" class="w-5 h-[14px] rounded-sm" />
+            <FlagEn v-else class="w-5 h-[14px] rounded-sm" />
             {{ loc.code }}
         </button>
     </div>
@@ -17,6 +19,8 @@
 
 <script setup lang="ts">
 import { tv } from 'tailwind-variants'
+import FlagRu from '../icons/FlagRu.vue'
+import FlagEn from '../icons/FlagEn.vue'
 
 const { t, locale, locales, setLocale } = useI18n()
 
