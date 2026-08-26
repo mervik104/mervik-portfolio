@@ -1,5 +1,7 @@
 # MerVik — Сайт-визитка и PDF-резюме
 
+[![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100-brightgreen?logo=googlechrome&logoColor=white)](https://pagespeed.web.dev/analysis/https-mervik-ru/hsxjj87m71?form_factor=desktop)
+
 Портфолио веб-разработчика MerVik (Boris Stepanenko). Одностраничный сайт-визитка на **Nuxt 4** с тёмной темой, красными акцентами и анимированным фоном-«созвездием», плюс печатные резюме RU/EN, генерируемые из тех же данных в **PDF**.
 
 **Живая версия:** [mervik.ru](https://mervik.ru/)
@@ -9,10 +11,12 @@
 
 - [Nuxt 4](https://nuxt.com) (SSG, prerender)
 - [Tailwind CSS v4](https://tailwindcss.com) + Vite-плагин
+- [tailwind-variants](https://www.tailwind-variants.org) — управление вариантами классов
 - [@nuxtjs/i18n](https://i18n.nuxtjs.org) — русский и английский
 - [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, Open Graph
-- [nuxt-single-html](https://github.com/harlan-zw/nuxt-single-html) — инлайнит JS/CSS в каждый `index.html`
+- [nuxt-single-html](https://github.com/serkodev/nuxt-single-html) — инлайнит JS/CSS в каждый `index.html`
 - [puppeteer-core](https://pptr.dev/) + локальный Chrome — генерация PDF-резюме из свёрстанной страницы
+- [axe-core](https://github.com/dequelabs/axe-core) — аудит доступности собранного сайта
 - [gh-pages](https://github.com/tschaub/gh-pages) — деплой на GitHub Pages
 - [tsParticles](https://particles.js.org/) — фон «созвездие» (Links-пресет, красная палитра)
 
@@ -65,6 +69,7 @@ bun run preview
 | `generate:pdf` | Печать `/resume/{ru,en}` в `public/` и `.output/public` PDF (Chrome ищется автоматически, override — `CHROME_PATH=/путь/к/chrome`) |
 | `preview` | Локальный предпросмотр `.output/public` |
 | `icons:download` | Скачивание SVG-иконок стека в `public/icons` |
+| `audit:a11y` | Аудит доступности собранного сайта (axe-core; нужна сборка + Chrome) |
 | `deploy` | Сборка → генерация PDF → публикация на GitHub Pages (`gh-pages -d dist`) |
 
 > `dist` — симлинк на `.output/public`.
@@ -77,9 +82,16 @@ bun run preview
 app/
   assets/css/main.css      — шрифты, тема Tailwind
   components/
-    shared/                — Hero, секции главной
-    experience/            — карточки проектов
+    shared/                — Hero, Background, LanguageToggle, SectionNav
+    about/                 — секция «Обо мне»
+    contacts/              — секция контактов
+    experience/            — секция опыта и карточки проектов
+    stack/                 — секция стека
+    footer/                — футер
+    icons/                 — SVG-иконки (GitHub, Telegram, почта, флаги)
     resume/ResumeSection.vue — секция резюме (опция avoid-break против разрывов страниц)
+  plugins/
+    restore-locale.client.ts — восстановление локали из куки после гидрации
   composables/
     useParticles.ts        — tsParticles-фон «созвездие» (Links + hover-grab)
     useReveal.ts           — reveal-анимации секций
@@ -98,6 +110,7 @@ i18n/locales/              — переводы ru.ts / en.ts
 scripts/
   generate-resume-pdf.mjs  — PDF-генерация: статический сервер + puppeteer-core
   download-icons.mjs       — загрузка иконок стека
+  a11y-audit.mjs           — аудит доступности (axe-core) по всем маршрутам
 public/                    — статика: favicons, иконки, фото, готовые PDF-резюме
 nuxt.config.ts             — Nuxt, i18n, SEO, single-html, prerender-роуты
 ```
