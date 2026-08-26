@@ -10,7 +10,17 @@ export default defineNuxtConfig({
     preset: 'static',
     static: true,
     prerender: {
-      routes: ['/', '/resume/ru', '/resume/en'],
+      routes: [
+        '/',
+        '/resume/ru',
+        '/resume/en',
+        '/tg',
+        '/telegram',
+        '/vk',
+        '/github',
+        '/mail',
+        '/discord',
+      ],
       crawlLinks: false,
     },
     routeRules: {

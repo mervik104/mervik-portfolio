@@ -1,3 +1,5 @@
 export const TELEGRAM = 'https://t.me/mervik104'
 export const GITHUB = 'https://github.com/mervik104'
 export const MAIL = 'mailto:mervik104@gmail.com'
+export const VK = 'https://vk.ru/mervik4'
+export const DISCORD = 'https://discord.com/users/1107601009032843364'
