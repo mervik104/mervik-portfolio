@@ -9,7 +9,7 @@
             type="button"
             :class="langButton({ active: locale === loc.code })"
             :aria-pressed="locale === loc.code"
-            @click="setLocale(loc.code)">
+            @click="switchLocale(loc.code)">
             <FlagRu v-if="loc.code === 'ru'" class="w-5 h-[14px] rounded-sm" />
             <FlagEn v-else class="w-5 h-[14px] rounded-sm" />
             {{ loc.code }}
@@ -23,6 +23,15 @@ import FlagRu from '../icons/FlagRu.vue'
 import FlagEn from '../icons/FlagEn.vue'
 
 const { t, locale, locales, setLocale } = useI18n()
+
+// detectBrowserLanguage отключён (мистматчи на статике), куку пишем сами
+const savedLocale = useCookie<'ru' | 'en'>('lang', { maxAge: 31536000, sameSite: 'lax' })
+
+function switchLocale(code: string) {
+    if (code !== 'ru' && code !== 'en') return
+    setLocale(code)
+    savedLocale.value = code
+}
 
 const langButton = tv({
     base: 'rounded-full px-3 py-1.5 transition-all duration-200',

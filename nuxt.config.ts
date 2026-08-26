@@ -41,11 +41,11 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
     strategy: 'no_prefix',
     langDir: 'locales',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'lang',
-      alwaysRedirect: false,
-    },
+    // ВАЖНО: detectBrowserLanguage переключает локаль по куке ДО гидрации,
+    // а статический HTML всегда сгенерирован на ru (defaultLocale) —
+    // это давало "Hydration completed but contains mismatches".
+    // Выбранный язык восстанавливаем из куки ПОСЛЕ гидрации в plugins/restore-locale.client.ts.
+    detectBrowserLanguage: false,
     // messages держим в JS-бандле (а не в /_i18n/.../messages.json),
     // чтобы nuxt-single-html всё заинлайнил в один index.html
     experimental: {
