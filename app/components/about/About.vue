@@ -2,12 +2,12 @@
     <section class="mb-16 md:mb-24 max-w-3xl reveal reveal-delay-2">
         <div class="section-heading flex items-center gap-4 mb-6">
             <span class="h-px w-10 bg-red-600 shrink-0" />
-            <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-200">
+            <h2 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-200">
                 {{ t('about.title') }}
-            </h3>
+            </h2>
         </div>
 
-        <div class="about-text font-mono text-neutral-300 hyphens-auto leading-6 text-sm md:text-base text-justify">
+        <div class="about-text font-mono text-neutral-200 hyphens-auto leading-6 text-sm md:text-base text-justify">
             <p v-for="(para, i) in paragraphs" :key="i" :class="{ 'mt-4': i > 0 }">
                 <template v-for="(seg, j) in para" :key="j">
                     <a v-if="seg.href" :href="seg.href" :class="seg.class" target="_blank" rel="noopener noreferrer">{{ seg.text }}</a>

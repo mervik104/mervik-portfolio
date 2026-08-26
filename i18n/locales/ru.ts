@@ -55,6 +55,9 @@ export default defineI18nLocale(() => ({
     en: 'English',
     ru: 'Русский',
   },
+  a11y: {
+    skipToContent: 'Перейти к основному содержимому',
+  },
   nav: {
     aria: 'Навигация по разделам',
     hero: 'Начало',

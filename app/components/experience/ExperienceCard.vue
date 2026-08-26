@@ -55,15 +55,15 @@
             </div>
         </div>
 
-            <h4 class="mt-3 font-display tracking-wide text-xl md:text-2xl text-neutral-100 leading-none">
+            <h3 class="mt-3 font-display tracking-wide text-xl md:text-2xl text-neutral-100 leading-none">
                 {{ item.role[locale] }}
-            </h4>
+            </h3>
 
             <p class="mt-2 text-lg sm:text-xl text-neutral-200 font-mono">
                 {{ item.company[locale] }}
             </p>
 
-            <p ref="textEl" class="mt-2 overflow-hidden text-sm md:text-[15px] leading-relaxed text-neutral-300 transition-[height] duration-300 ease-out"
+            <p ref="textEl" class="mt-2 overflow-hidden text-sm md:text-[15px] leading-relaxed text-neutral-200 transition-[height] duration-300 ease-out"
                 :class="!expanded && 'line-clamp-3'">
                 {{ item.description[locale] }}
             </p>
@@ -166,7 +166,7 @@ const linkButton = tv({
     base: 'group/link inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950',
     variants: {
         kind: {
-            github: 'border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:border-red-800 hover:text-red-400',
+            github: 'border-neutral-800 bg-neutral-900/60 text-neutral-200 hover:border-red-800 hover:text-red-400',
             website: 'border-red-800 bg-red-800/20 text-red-400 hover:border-red-600 hover:bg-red-800/40',
         },
     },

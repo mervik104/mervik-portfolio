@@ -1,9 +1,9 @@
 <template>
     <div class="stack-item group relative">
-        <h4
+        <h3
             class="font-mono text-red-500 text-sm uppercase tracking-widest mb-3 group-hover:opacity-100 transition-opacity duration-200">
             {{ t(`stack.categories.${item.key}`) }}
-        </h4>
+        </h3>
 
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
             <div v-for="tech in item.items" :key="tech.name" class="flex items-center gap-2">

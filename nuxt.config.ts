@@ -82,6 +82,9 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       ],
       link: [
+        // шрифты выше сгиба: заголовок (Bebas Neue) и основной текст (DM Mono)
+        { rel: 'preload', href: '/fonts/BebasNeue-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
+        { rel: 'preload', href: '/fonts/DMMono-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         { rel: 'icon', href: '/favicon.ico' }
       ]
     }

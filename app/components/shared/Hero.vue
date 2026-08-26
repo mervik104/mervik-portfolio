@@ -1,8 +1,8 @@
 <template>
   <header class="mb-16 mt-8 md:mb-24 reveal">
-    <h2 class="font-mono text-red-500 text-xs tracking-[0.35em] uppercase border-b border-red-900/25 pb-2 mb-8 w-fit">
+    <p class="font-mono text-red-500 text-xs tracking-[0.35em] uppercase border-b border-red-900/25 pb-2 mb-8 w-fit">
       {{ t('hero.badge') }}
-    </h2>
+    </p>
     <div class="flex flex-row items-center gap-5 group">
       <div class="relative shrink-0">
         <div
@@ -20,7 +20,7 @@
       </div>
     </div>
     <p
-      class="font-mono text-neutral-300 text-base md:text-lg border-l-2 border-red-600 pl-4 mt-8 max-w-xl leading-relaxed">
+      class="font-mono text-neutral-200 text-base md:text-lg border-l-2 border-red-600 pl-4 mt-8 max-w-xl leading-relaxed">
       {{ t('hero.tagline') }}
     </p>
     <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -29,7 +29,7 @@
         {{ t('hero.downloadRu') }}
       </a>
       <a :href="PDF_EN" download rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 rounded-xl border border-neutral-800 bg-neutral-900/60 px-5 py-2.5 font-mono text-sm text-neutral-300 transition-all duration-300 hover:border-red-800 hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
+        class="inline-flex items-center gap-2 rounded-xl border border-neutral-800 bg-neutral-900/60 px-5 py-2.5 font-mono text-sm text-neutral-200 transition-all duration-300 hover:border-red-800 hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950">
         {{ t('hero.downloadEn') }}
       </a>
     </div>

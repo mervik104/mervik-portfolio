@@ -4,6 +4,18 @@ export function useReveal() {
     let observer: IntersectionObserver | null = null
 
     const initReveal = () => {
+        const reduceMotion =
+            typeof window.matchMedia === 'function' &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+        const targets = document.querySelectorAll('.reveal')
+
+        if (reduceMotion) {
+            // без анимации: контент виден сразу, observer не нужен
+            targets.forEach(el => el.classList.add('revealed'))
+            return
+        }
+
         observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
@@ -15,7 +27,7 @@ export function useReveal() {
             },
             { threshold: 0.1 }
         )
-        document.querySelectorAll('.reveal').forEach(el => observer!.observe(el))
+        targets.forEach(el => observer!.observe(el))
     }
 
     onMounted(() => {

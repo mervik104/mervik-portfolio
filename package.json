@@ -8,6 +8,7 @@
     "preview": "nuxt preview",
     "icons:download": "node scripts/download-icons.mjs",
     "generate:pdf": "node scripts/generate-resume-pdf.mjs",
+    "audit:a11y": "node scripts/a11y-audit.mjs",
     "deploy": "npm run build && npm run generate:pdf && gh-pages -d dist"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "vue-router": "^5.0.7"
   },
   "devDependencies": {
+    "axe-core": "^4.13.0",
     "puppeteer-core": "^25.7.0"
   }
 }

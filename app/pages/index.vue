@@ -1,18 +1,24 @@
 <template>
   <div
     class="relative w-full min-h-screen bg-neutral-950 text-neutral-200 overflow-hidden selection:bg-red-600 selection:text-white">
-    <Background />
+    <a href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-xl focus:bg-red-600 focus:text-white focus:px-4 focus:py-2.5 focus:font-mono focus:text-sm">
+      {{ t('a11y.skipToContent') }}
+    </a>
 
-    <div class="fixed top-4 right-4 md:top-6 md:right-6 z-30">
-      <ClientOnly>
-        <LanguageToggle />
-      </ClientOnly>
-    </div>
+    <Background />
 
     <SectionNav :sections="navSections" />
 
     <main
+      id="main"
       class="relative z-10 max-w-5xl mx-auto bg-neutral-950 border-x border-neutral-800/60 min-h-screen flex flex-col px-5 md:px-10 lg:px-16 py-10 md:py-16">
+
+      <div class="fixed top-4 right-4 md:top-6 md:right-6 z-30">
+        <ClientOnly>
+          <LanguageToggle />
+        </ClientOnly>
+      </div>
 
       <div id="hero">
         <Hero />
@@ -31,9 +37,9 @@
       <div id="contacts" class="reveal">
         <div class="section-heading mt-10 flex items-center gap-4 mb-8 md:mb-10">
           <span class="h-px w-10 bg-red-600 shrink-0" />
-          <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-300">
+          <h2 class="font-display text-xl md:text-2xl tracking-widest uppercase text-neutral-200">
             {{ t('contact.title') }}
-          </h3>
+          </h2>
         </div>
 
         <Contacts />
@@ -172,6 +178,29 @@ useHead({
 }
 
 .reveal-delay-5 {
-  transition-delay: 0.32s;
+    transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-blob,
+  .animate-blob-delayed,
+  .animate-drip {
+    animation: none;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .reveal-delay-4,
+  .reveal-delay-5 {
+    transition-delay: 0s;
+  }
 }
 </style>

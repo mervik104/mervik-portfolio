@@ -138,6 +138,10 @@ async function main() {
         footerTemplate: footerTemplate(target.lang),
         margin: { top: '12mm', right: '14mm', bottom: '16mm', left: '14mm' },
         timeout: 60_000,
+        // tagged: структура h1→h2→h3 попадает в дерево доступности PDF,
+        // outline: закладки по секциям резюме
+        tagged: true,
+        outline: true,
       })
 
       // в исходный public/ — чтобы файлы были доступны в dev и копировались в каждый билд

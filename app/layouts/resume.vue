@@ -1,10 +1,14 @@
 <template>
   <div class="resume-root min-h-screen bg-neutral-100 font-mono text-neutral-900 print:bg-white">
+    <a href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-xl focus:bg-red-600 focus:text-white focus:px-4 focus:py-2.5 focus:text-sm no-print">
+      {{ t('a11y.skipToContent') }}
+    </a>
     <div class="resume-sheet max-w-[210mm] mx-auto min-h-screen bg-white shadow-xl sm:shadow-2xl print:max-w-none print:shadow-none">
-      <div
+      <header
         class="no-print flex flex-nowrap items-center justify-between gap-2 border-b border-neutral-100 px-4 py-3 md:px-10 md:py-4">
         <nav class="flex shrink-0 items-center gap-1 rounded-full border border-neutral-200 bg-neutral-50 p-1 text-xs uppercase tracking-widest"
-          role="group" :aria-label="t('language.title')">
+          :aria-label="t('language.title')">
           <NuxtLink to="/resume/ru" :class="langLink({ active: lang === 'ru' })" :aria-current="lang === 'ru' ? 'page' : undefined">
             RU
           </NuxtLink>
@@ -35,9 +39,9 @@
             ← {{ t('resume.backToSite') }}
           </NuxtLink>
         </div>
-      </div>
+      </header>
 
-      <main class="px-6 py-8 md:px-10 md:py-10 print:p-0">
+      <main id="main" class="px-6 py-8 md:px-10 md:py-10 print:p-0">
         <slot />
       </main>
     </div>
