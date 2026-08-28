@@ -6,7 +6,7 @@
 
         <div :class="topLine({ commercial: isCommercial })" />
 
-        <div v-if="item.image" class="relative overflow-hidden md:w-2/5 md:shrink-0">
+        <div v-if="item.image" :class="imageWrapper">
             <div v-if="!imgFailed"
                 class="relative aspect-video md:aspect-auto md:h-full w-full overflow-hidden">
                 <div v-if="!imgLoaded" class="absolute inset-0 motion-safe:animate-pulse" />
@@ -28,7 +28,7 @@
                 class="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/15 to-transparent md:bg-linear-to-l md:from-neutral-950/40 md:via-transparent md:to-transparent pointer-events-none" />
         </div>
 
-        <div class="relative p-6 md:p-7 md:flex-1 md:min-w-0">
+        <div class="relative p-6 md:p-7 md:flex-1 md:min-w-0" :class="expanded && 'md:pr-32'">
             <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                 <p class="uppercase text-[10px] sm:text-xs tracking-[0.25em] text-red-500 font-mono">
                     {{ item.period[locale] }}
@@ -212,6 +212,15 @@ const statusClasses = computed(() => {
 const imgFailed = ref(false)
 const imgLoaded = ref(false)
 const expanded = ref(false)
+
+const imageWrapper = computed(() => {
+    const base = 'relative overflow-hidden w-full aspect-video md:aspect-auto transition-all duration-300 ease-out'
+    if (!expanded.value) {
+        return `${base} md:w-2/5 md:shrink-0 md:h-full`
+    }
+    return `${base} md:absolute md:inset-y-4 md:right-4 md:h-24 md:w-24 md:shrink-0 md:overflow-hidden md:rounded-2xl md:border md:border-red-800/40 md:shadow-lg md:z-10`
+})
+
 const textEl = ref<HTMLElement | null>(null)
 const needsToggle = ref(false)
 

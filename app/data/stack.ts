@@ -49,6 +49,7 @@ export const stack: StackCategory[] = [
             { name: 'Express.js', icon: 'skill-icons:expressjs-light' },
             { name: 'MongoDB', icon: 'skill-icons:mongodb' },
             { name: 'SQLite', icon: 'skill-icons:sqlite' },
+            { name: 'SurrealDB', icon: 'devicon:surrealdb' },
         ],
     },
     {
