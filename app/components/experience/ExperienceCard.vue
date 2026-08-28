@@ -28,7 +28,7 @@
                 class="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/15 to-transparent md:bg-linear-to-l md:from-neutral-950/40 md:via-transparent md:to-transparent pointer-events-none" />
         </div>
 
-        <div class="relative p-6 md:p-7 md:flex-1 md:min-w-0" :class="expanded && 'md:pr-32'">
+        <div class="relative p-4 sm:p-5 md:p-7 md:flex-1 md:min-w-0" :class="expanded && 'md:pr-32'">
             <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                 <p class="uppercase text-[10px] sm:text-xs tracking-[0.25em] text-red-500 font-mono">
                     {{ item.period[locale] }}
@@ -63,7 +63,7 @@
                 {{ item.company[locale] }}
             </p>
 
-            <p ref="textEl" class="mt-2 overflow-hidden text-sm md:text-[15px] leading-relaxed text-neutral-200 transition-[height] duration-300 ease-out"
+            <p ref="textEl" class="mt-2 overflow-hidden text-[11px] sm:text-[13px] md:text-[15px] leading-relaxed text-neutral-200 transition-[height] duration-300 ease-out"
                 :class="!expanded && 'line-clamp-3'">
                 {{ item.description[locale] }}
             </p>
