@@ -215,20 +215,50 @@ const status = tv({
                 dot: 'bg-sky-400',
                 label: 'text-sky-400',
             },
+
+            maintenance: {
+                badge: 'border-emerald-800/40 bg-emerald-950/30',
+                ping: 'bg-emerald-400',
+                dot: 'bg-emerald-400',
+                label: 'text-emerald-400',
+            },
+
+            current: {
+                badge: 'border-cyan-800/40 bg-cyan-950/30',
+                ping: 'bg-cyan-400',
+                dot: 'bg-cyan-400',
+                label: 'text-cyan-400',
+            },
+
+            archived: {
+                badge: 'border-zinc-700/40 bg-zinc-900/40',
+                ping: 'bg-zinc-400',
+                dot: 'bg-zinc-400',
+                label: 'text-zinc-400',
+            },
         },
     },
 })
 
 const statusLabel = computed(() => {
     switch (props.item.status) {
-        case 'education':
-            return t('experience.education')
+        case 'completed':
+            return t('experience.completed')
 
         case 'development':
             return t('experience.inDevelopment')
 
-        case 'completed':
-            return t('experience.completed')
+        case 'maintenance':
+            return t('experience.maintenance')
+
+        case 'current':
+            return t('experience.current')
+
+        case 'education':
+            return t('experience.education')
+
+        case 'archived':
+            return t('experience.archived')
 
         default:
             return ''

@@ -20,6 +20,7 @@ export default defineNuxtConfig({
         '/github',
         '/mail',
         '/discord',
+        '/nuxtgram',
       ],
       crawlLinks: false,
     },
